@@ -1,24 +1,3 @@
 name: SCA Scan
 
-# Pilot caller on the fork: manual runs only, the schedule is added when rolled out upstream.
-
-on:
-  workflow_dispatch:
-
-concurrency:
-  group: sca-scan
-  cancel-in-progress: false
-
-permissions:
-  contents: read
-  packages: read
-
-jobs:
-  sca:
-    uses: epam/ai-dial-ci/.github/workflows/sca_scheduled.yml@4.13.2
-    with:
-      repository: epam/ai-dial-chat
-      images: |
-        epam/ai-dial-chat
-        epam/ai-dial-chat-mcp-app-sandbox
-        epam/ai-dial-chat-bff
+# Pilot caller on the fork: m
