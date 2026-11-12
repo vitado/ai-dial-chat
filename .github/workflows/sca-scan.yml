@@ -1,3 +1,24 @@
 name: SCA Scan
 
-# Pilot caller on the fork: m
+# Pilot caller on the fork: manual runs only, the schedule is added when rolled out upstream.
+
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: sca-scan-sca-smoke-k1-base
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  packages: read
+
+jobs:
+  sca:
+    uses: vitado/ai-dial-ci/.github/workflows/sca_scheduled.yml@sca-smoke-k1-base
+    with:
+      repository: epam/ai-dial-chat
+      images: |
+        epam/ai-dial-chat
+        epam/ai-dial-chat-mcp-app-sandbox
+        epam/ai-dial-chat-bff
