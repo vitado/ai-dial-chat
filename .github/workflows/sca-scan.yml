@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 concurrency:
-  group: sca-scan-sca-smoke-s3b
+  group: sca-scan-sca-canary
   cancel-in-progress: false
 
 permissions:
@@ -15,7 +15,7 @@ permissions:
 
 jobs:
   sca:
-    uses: vitado/ai-dial-ci/.github/workflows/sca_scheduled.yml@sca-smoke-s3b
+    uses: vitado/ai-dial-ci/.github/workflows/sca_scheduled.yml@sca-canary
     with:
       repository: epam/ai-dial-chat
       images: |
